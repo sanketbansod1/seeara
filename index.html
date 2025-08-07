@@ -2,132 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SEEARA - Arriving Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seeara - Arriving Soon</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       height: 100vh;
-      background: linear-gradient(135deg, #1f002b, #3b003b, #000000);
-      font-family: 'UnifrakturCook', cursive;
+      background: linear-gradient(-45deg, #1a0023, #3a0b51, #25012b, #1a0023);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      overflow: hidden;
       color: #fffaf0;
+      font-family: 'Playfair Display', serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-      position: relative;
       text-align: center;
     }
 
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     h1 {
-      font-size: 5rem;
-      margin-bottom: 1rem;
+      font-size: 4rem;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
 
     p {
       font-size: 1.5rem;
-      animation: dots 1.5s steps(5, end) infinite;
+      margin-top: 0.5rem;
+      animation: blink 1.5s infinite;
     }
 
-    @keyframes dots {
-      0%, 20% {
-        content: '';
-      }
-      40% {
-        content: '.';
-      }
-      60% {
-        content: '..';
-      }
-      80%, 100% {
-        content: '...';
-      }
+    @keyframes blink {
+      0% {opacity: 0.2;}
+      50% {opacity: 1;}
+      100% {opacity: 0.2;}
     }
 
-    .socials {
-      margin-top: 2rem;
+    .icons {
+      margin-top: 20px;
     }
 
-    .socials a {
+    .icons a {
       color: #fffaf0;
-      font-size: 2rem;
-      margin: 0 1rem;
-      transition: color 0.3s;
+      margin: 0 10px;
+      font-size: 1.8rem;
+      text-decoration: none;
+      transition: transform 0.3s ease;
     }
 
-    .socials a:hover {
-      color: #ffb6c1;
+    .icons a:hover {
+      transform: scale(1.2);
+      color: #ffd6e0;
     }
 
+    /* Particle dots */
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatDots 10s linear infinite;
+    }
+
+    @keyframes floatDots {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-100vh);}
+    }
+
+    /* SVG Wave at Bottom */
     .wave {
       position: absolute;
       bottom: 0;
-      left: 0;
       width: 100%;
-      height: 120px;
     }
 
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: 0;
-    }
-
-    .dot {
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: floatUp 8s linear infinite;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(-10vh);
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="particles">
-    <!-- Floating Dots -->
-    <script>
-      for (let i = 0; i < 100; i++) {
-        const dot = document.createElement("div");
-        dot.classList.add("dot");
-        dot.style.left = Math.random() * 100 + "vw";
-        dot.style.width = dot.style.height = Math.random() * 4 + 2 + "px";
-        dot.style.animationDuration = (Math.random() * 5 + 5) + "s";
-        document.body.querySelector(".particles").appendChild(dot);
-      }
-    </script>
-  </div>
-
   <h1>SEEARA</h1>
-  <p>Arriving Soon...</p>
+  <p>Arriving soon...</p>
 
-  <div class="socials">
+  <div class="icons">
     <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://www.facebook.com/share/19dxqHJNb1/" target="_blank"><i class="fab fa-facebook"></i></a>
   </div>
 
-  <svg class="wave" viewBox="0 0 1440 320">
-    <path fill="#fffaf00a" fill-opacity="1" d="M0,224L40,202.7C80,181,160,139,240,122.7C320,107,400,117,480,117.3C560,117,640,107,720,128C800,149,880,203,960,224C1040,245,1120,235,1200,224C1280,213,1360,203,1400,197.3L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-  </svg>
+  <!-- Floating Dots -->
+  <script>
+    for(let i=0; i<40; i++) {
+      let dot = document.createElement("div");
+      dot.classList.add("dot");
+      dot.style.left = Math.random() * 100 + "vw";
+      dot.style.top = Math.random() * 100 + "vh";
+      dot.style.animationDuration = (5 + Math.random() * 10) + "s";
+      dot.style.opacity = Math.random();
+      document.body.appendChild(dot);
+    }
+  </script>
+
+  <!-- SVG Wavy Bottom -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 320">
+      <path fill="#fffaf0" fill-opacity="1" d="M0,160L48,138.7C96,117,192,75,288,74.7C384,75,480,117,576,128C672,139,768,117,864,128C960,139,1056,181,1152,192C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </div>
 </body>
 </html>
