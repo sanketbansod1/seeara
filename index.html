@@ -8,16 +8,15 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Fira+Mono&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (working version) -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-a2cN8lCtbYlP8AI+l4wbYEnYi2ZgR91gE6aaQFFZibv5mCyiEkgDJJybTY6SHJKj2Hka+vZl0SgAKa0yj8uB9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
+    /* Reset and body styles */
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(-45deg, #65041d, #7b1231, #450015, #6a0f1c);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      background-color: #0a0a0a;
       color: #fffaf0;
       font-family: 'Cinzel', serif;
       display: flex;
@@ -26,24 +25,49 @@
       align-items: center;
       height: 100vh;
       text-align: center;
+      overflow: hidden;
     }
 
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    /* Wavy animated background */
+    .waves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      overflow: hidden;
     }
 
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,0,150,0.1), transparent 70%), 
+                  radial-gradient(circle, rgba(0,200,255,0.1), transparent 70%), 
+                  radial-gradient(circle, rgba(0,255,150,0.1), transparent 70%);
+      animation: moveWaves 12s linear infinite;
+    }
+
+    @keyframes moveWaves {
+      0% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(-10%) translateY(-5%); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+
+    /* Heading and subtitle */
     h1 {
       font-size: 4.5rem;
       margin: 0;
       letter-spacing: 3px;
+      z-index: 1;
     }
 
     .subtitle {
       font-family: 'Fira Mono', monospace;
       font-size: 1.2rem;
       margin-top: 10px;
+      z-index: 1;
     }
 
     .dots::after {
@@ -60,8 +84,10 @@
       100% { content: '...'; }
     }
 
+    /* Social Icons */
     .icons {
       margin-top: 40px;
+      z-index: 1;
     }
 
     .icons a {
@@ -78,6 +104,10 @@
   </style>
 </head>
 <body>
+  <div class="waves">
+    <div class="wave"></div>
+  </div>
+
   <h1>SEEARA</h1>
   <div class="subtitle">
     arriving soon<span class="dots"></span>
