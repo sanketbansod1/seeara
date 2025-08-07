@@ -12,10 +12,13 @@
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <style>
+    /* Animated Gradient Background */
     body {
       margin: 0;
       padding: 0;
-      background-color: #65041d;
+      background: linear-gradient(-45deg, #65041d, #7b1231, #450015, #6a0f1c);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       color: #fffaf0;
       font-family: 'Cinzel', serif;
       display: flex;
@@ -24,6 +27,12 @@
       align-items: center;
       height: 100vh;
       text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     h1 {
