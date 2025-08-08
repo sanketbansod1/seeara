@@ -9,7 +9,7 @@
     rel="stylesheet"
   />
   <style>
-    /* Background with animated silk-like effect */
+    /* Background with subtle animated silk-like shimmer */
     @keyframes shimmer {
       0% {
         background-position: 0 0;
@@ -57,30 +57,25 @@
       font-size: 1.4rem;
       font-weight: 500;
       color: #ccc;
-      height: 30px; /* to prevent layout shift during typing */
       margin-bottom: 2rem;
       font-style: italic;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #ccc;
-      width: 20ch; /* approximate width for animation */
-      animation: typing 4s steps(20) infinite alternate, blink-caret 0.75s step-end infinite;
-      margin-left: auto;
-      margin-right: auto;
+      user-select: none;
     }
 
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-      to {
-        width: 20ch;
-      }
+    /* Animate only the dots "..." */
+    .dots {
+      display: inline-block;
+      width: 1.5em;
+      text-align: left;
+      animation: blinkDots 1.5s infinite;
     }
 
-    @keyframes blink-caret {
-      50% {
-        border-color: transparent;
+    @keyframes blinkDots {
+      0%, 20% {
+        color: transparent;
+      }
+      50%, 100% {
+        color: #ccc;
       }
     }
 
@@ -106,7 +101,9 @@
 <body>
   <div class="container">
     <h1>SEEARA</h1>
-    <div class="tagline">A story yet to Unfold...</div>
+    <div class="tagline">
+      A story yet to Unfold<span class="dots">...</span>
+    </div>
     <div class="social-icons">
       <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
