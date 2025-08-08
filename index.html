@@ -2,145 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SEEARA | Arriving Soon</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seeara | Coming Soon</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
       height: 100vh;
-      font-family: 'Playfair Display', serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      background: linear-gradient(135deg, #1a000d, #3c0022, #65041d, #30001a);
-      color: #fffaf0;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+    }
+
+    .nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #65041d, #000);
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .wave::after {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      background: repeating-radial-gradient(circle at center, #ff0055, #00f2fe, #65041d);
+      animation: wave 8s ease-in-out infinite;
+      opacity: 0.08;
+    }
+
+    @keyframes wave {
+      0% { transform: translate(-25%, -25%) scale(1); }
+      50% { transform: translate(-20%, -20%) scale(1.3); }
+      100% { transform: translate(-25%, -25%) scale(1); }
+    }
+
+    .main-text {
       text-align: center;
+      z-index: 1;
     }
 
-    h1 {
-      font-size: 4em;
-      margin: 0;
+    .main-text h1 {
+      font-size: 60px;
+      letter-spacing: 8px;
+      color: #fff;
     }
 
-    .arriving {
-      font-size: 1.5em;
+    .main-text h2 {
+      font-size: 20px;
       margin-top: 10px;
+      color: #ccc;
     }
 
     .dots::after {
       content: '';
       display: inline-block;
-      width: 1em;
-      animation: dots 1.2s steps(4, end) infinite;
+      width: 1ch;
+      animation: dots 1.5s steps(3, end) infinite;
     }
 
     @keyframes dots {
-      0%   { content: ''; }
-      25%  { content: '.'; }
-      50%  { content: '..'; }
-      75%  { content: '...'; }
-      100% { content: ''; }
+      0% { content: '.'; }
+      33% { content: '..'; }
+      66% { content: '...'; }
     }
 
-    .icons {
-      margin-top: 25px;
-    }
-
-    .icons a {
-      color: #fffaf0;
-      margin: 0 12px;
-      font-size: 1.8em;
-      transition: transform 0.3s ease;
-    }
-
-    .icons a:hover {
-      transform: scale(1.2);
-      color: #ffcccc;
-    }
-
-    .particles {
+    .socials {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      overflow: hidden;
+      bottom: 20px;
+      display: flex;
+      gap: 20px;
     }
 
-    .particles span {
-      position: absolute;
-      background: rgba(255,255,255,0.15);
-      border-radius: 50%;
-      animation: floatUp 10s linear infinite;
+    .socials a {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
     }
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh) scale(0.3);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
-    }
-
-    .wave {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      z-index: 0;
-    }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <h1>SEEARA</h1>
-  <p class="arriving">Arriving Soon<span class="dots"></span></p>
-
-  <div class="icons">
-    <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/share/19dxqHJNb1/" target="_blank">
-      <i class="fab fa-facebook"></i>
-    </a>
+  <div class="nav">
+    <div>HOME</div>
+    <div>SUBSCRIBE</div>
   </div>
 
-  <!-- Particle Dots -->
-  <div class="particles">
-    <script>
-      for(let i=0; i<40; i++) {
-        const dot = document.createElement('span');
-        dot.style.left = Math.random() * 100 + 'vw';
-        dot.style.top = Math.random() * 100 + 'vh';
-        const size = Math.random() * 4 + 4;
-        dot.style.width = dot.style.height = size + 'px';
-        dot.style.animationDelay = Math.random() * 10 + 's';
-        document.querySelector('.particles').appendChild(dot);
-      }
-    </script>
+  <div class="wave"></div>
+
+  <div class="main-text">
+    <h1>SEEARA</h1>
+    <h2 class="dots">Arriving Soon</h2>
   </div>
 
-  <!-- SVG Wave -->
-  <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150">
-    <path fill="#450015" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,112C384,107,480,85,576,74.7C672,64,768,64,864,80C960,96,1056,128,1152,144C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-  </svg>
+  <div class="socials">
+    <a href="https://instagram.com/your_insta_id" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://facebook.com/your_fb_id" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
 
 </body>
 </html>
