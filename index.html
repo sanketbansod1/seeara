@@ -3,123 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SEEARA | Arriving Soon</title>
+  <title>Seeara - Arriving Soon</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Fira+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-a2cN8lCtbYlP8AI+l4wbYEnYi2ZgR91gE6aaQFFZibv5mCyiEkgDJJybTY6SHJKj2Hka+vZl0SgAKa0yj8uB9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <style>
-    /* Reset and body styles */
     body {
       margin: 0;
       padding: 0;
-      background-color: #0a0a0a;
+      height: 100vh;
+      background: linear-gradient(-45deg, #1a0023, #3a0b51, #25012b, #1a0023);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+      overflow: hidden;
       color: #fffaf0;
-      font-family: 'Cinzel', serif;
+      font-family: 'Playfair Display', serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
       text-align: center;
-      overflow: hidden;
     }
 
-    /* Wavy animated background */
-    .waves {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      overflow: hidden;
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
-    .wave {
-      position: absolute;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,0,150,0.1), transparent 70%), 
-                  radial-gradient(circle, rgba(0,200,255,0.1), transparent 70%), 
-                  radial-gradient(circle, rgba(0,255,150,0.1), transparent 70%);
-      animation: moveWaves 12s linear infinite;
-    }
-
-    @keyframes moveWaves {
-      0% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(-10%) translateY(-5%); }
-      100% { transform: translateX(0) translateY(0); }
-    }
-
-    /* Heading and subtitle */
     h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
       margin: 0;
-      letter-spacing: 3px;
-      z-index: 1;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
     }
 
-    .subtitle {
-      font-family: 'Fira Mono', monospace;
-      font-size: 1.2rem;
-      margin-top: 10px;
-      z-index: 1;
+    p {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      animation: blink 1.5s infinite;
     }
 
-    .dots::after {
-      content: '';
-      display: inline-block;
-      width: 1em;
-      animation: dots 1.5s steps(3, end) infinite;
+    @keyframes blink {
+      0% {opacity: 0.2;}
+      50% {opacity: 1;}
+      100% {opacity: 0.2;}
     }
 
-    @keyframes dots {
-      0%   { content: ''; }
-      33%  { content: '.'; }
-      66%  { content: '..'; }
-      100% { content: '...'; }
-    }
-
-    /* Social Icons */
     .icons {
-      margin-top: 40px;
-      z-index: 1;
+      margin-top: 20px;
     }
 
     .icons a {
       color: #fffaf0;
+      margin: 0 10px;
       font-size: 1.8rem;
-      margin: 0 12px;
       text-decoration: none;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .icons a:hover {
       transform: scale(1.2);
+      color: #ffd6e0;
     }
+
+    /* Particle dots */
+    .dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: floatDots 10s linear infinite;
+    }
+
+    @keyframes floatDots {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-100vh);}
+    }
+
+    /* SVG Wave at Bottom */
+    .wave {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
   </style>
 </head>
 <body>
-  <div class="waves">
-    <div class="wave"></div>
-  </div>
-
   <h1>SEEARA</h1>
-  <div class="subtitle">
-    arriving soon<span class="dots"></span>
-  </div>
+  <p>Arriving soon...</p>
 
   <div class="icons">
-    <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://www.facebook.com/share/19NtuCUSk1/" target="_blank">
-      <i class="fab fa-facebook"></i>
-    </a>
+    <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/share/19NtuCUSk1/" target="_blank"><i class="fab fa-facebook"></i></a>
+  </div>
+
+  <!-- Floating Dots -->
+  <script>
+    for(let i=0; i<40; i++) {
+      let dot = document.createElement("div");
+      dot.classList.add("dot");
+      dot.style.left = Math.random() * 100 + "vw";
+      dot.style.top = Math.random() * 100 + "vh";
+      dot.style.animationDuration = (5 + Math.random() * 10) + "s";
+      dot.style.opacity = Math.random();
+      document.body.appendChild(dot);
+    }
+  </script>
+
+  <!-- SVG Wavy Bottom -->
+  <div class="wave">
+    <svg viewBox="0 0 1440 320">
+      <path fill="#fffaf0" fill-opacity="1" d="M0,160L48,138.7C96,117,192,75,288,74.7C384,75,480,117,576,128C672,139,768,117,864,128C960,139,1056,181,1152,192C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
   </div>
 </body>
 </html>
