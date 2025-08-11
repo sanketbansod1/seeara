@@ -1,161 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seeara | Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;600&family=Unica+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEEARA - A Story Yet to Unfold...</title>
+<style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
     body {
-      background-color: #000;
-      font-family: 'Outfit', sans-serif;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      color: #fff;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: url('silk.jpg') center/cover no-repeat;
+        animation: silkMove 15s ease-in-out infinite alternate;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
     }
 
-    .nav {
-      position: absolute;
-      top: 30px;
-      right: 50px;
-      display: flex;
-      gap: 40px;
-      font-size: 14px;
-      letter-spacing: 2px;
-      z-index: 2;
-      color: #aaa;
+    @keyframes silkMove {
+        0% { background-position: center; }
+        50% { background-position: 60% 40%; }
+        100% { background-position: center; }
     }
 
-    .main-text {
-      text-align: center;
-      z-index: 2;
+    h1 {
+        font-size: 3em;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin: 0;
     }
 
-    .main-text h1 {
-      font-family: 'Unica One', cursive;
-      font-size: 70px;
-      letter-spacing: 12px;
-      color: #fff;
-    }
-
-    .main-text h2 {
-      font-size: 20px;
-      color: #ccc;
-      margin-top: 10px;
+    h2 {
+        font-size: 1.5em;
+        font-weight: 400;
+        letter-spacing: 2px;
+        margin-top: 10px;
     }
 
     .dots::after {
-      content: '';
-      display: inline-block;
-      width: 1ch;
-      animation: dots 1.5s steps(3, end) infinite;
+        content: '';
+        animation: dotsAnim 2s steps(4, end) infinite;
     }
 
-    @keyframes dots {
-      0% { content: '.'; }
-      33% { content: '..'; }
-      66% { content: '...'; }
+    @keyframes dotsAnim {
+        0% { content: ''; }
+        25% { content: '.'; }
+        50% { content: '..'; }
+        75% { content: '...'; }
+        100% { content: ''; }
     }
 
-    .socials {
-      position: absolute;
-      bottom: 20px;
-      display: flex;
-      gap: 20px;
-      z-index: 2;
+    .social {
+        margin-top: 25px;
     }
 
-    .socials a {
-      color: white;
-      text-decoration: none;
-      font-size: 24px;
-      transition: transform 0.3s ease;
+    .social a {
+        color: white;
+        font-size: 1.8em;
+        margin: 0 15px;
+        transition: 0.3s;
     }
 
-    .socials a:hover {
-      transform: scale(1.2);
+    .social a:hover {
+        color: #d4af37; /* Golden hover */
     }
-
-    /* === SVG Wave Background === */
-    .wave-bg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    svg {
-      position: absolute;
-      bottom: -50px;
-      left: 0;
-      width: 100%;
-      height: auto;
-    }
-
-    .glow-wave {
-      fill: none;
-      stroke: url(#grad);
-      stroke-width: 2;
-      opacity: 0.7;
-      animation: waveMotion 10s ease-in-out infinite;
-    }
-
-    @keyframes waveMotion {
-      0% { transform: translateX(0); }
-      50% { transform: translateX(-100px); }
-      100% { transform: translateX(0); }
-    }
-
-  </style>
+</style>
 </head>
 <body>
 
-  <div class="nav">
-    <div>HOME</div>
-    <div>SUBSCRIBE</div>
-  </div>
-
-  <div class="main-text">
     <h1>SEEARA</h1>
-    <h2 class="dots">A Story Yet to Unfold...</h2>
-  </div>
+    <h2>A Story Yet to Unfold<span class="dots"></span></h2>
 
-  <div class="socials">
-    <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/share/19NtuCUSk1/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-  </div>
-
-  <!-- 🔥 SVG WAVE BACKGROUND -->
-  <div class="wave-bg">
-    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#ff0055;" />
-          <stop offset="50%" style="stop-color:#00f2fe;" />
-          <stop offset="100%" style="stop-color:#65041d;" />
-        </linearGradient>
-      </defs>
-      <path class="glow-wave"
-        d="M0,160 C360,280 1080,40 1440,160 L1440,320 L0,320 Z">
-      </path>
-    </svg>
-  </div>
+    <div class="social">
+        <a href="https://www.instagram.com/seearaofficial?igsh=OXh6YW5oNzB5djFt" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/19NtuCUSk1/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
 
 </body>
 </html>
-    
